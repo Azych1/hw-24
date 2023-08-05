@@ -19,18 +19,30 @@ public class CalculatorController {
     }
 
     @GetMapping("/plus")
-    public String plus(@RequestParam int num1,@RequestParam int num2) {
-        return calculatorService.plus(num1, num2);
+    public String plus(@RequestParam (required = false) Integer num1,@RequestParam (required = false) Integer num2) {
+        if (num1 != null && num2 != null) {
+            return calculatorService.plus(num1, num2);
+        } else {
+            return "Не хватает числа(-ел) для выполнения операции";
+        }
     }
 
     @GetMapping("/minus")
-    public String minus(@RequestParam int num1,@RequestParam int num2) {
-        return calculatorService.minus(num1, num2);
+    public String minus(@RequestParam (required = false) Integer num1,@RequestParam (required = false) Integer num2) {
+        if (num1 != null && num2 != null) {
+            return calculatorService.minus(num1, num2);
+        } else {
+            return "Не хватает числа(-ел) для выполнения операции";
+        }
     }
 
     @GetMapping("/multiply")
-    public String multiply(@RequestParam int num1,@RequestParam int num2) {
-        return calculatorService.multiply(num1, num2);
+    public String multiply(@RequestParam (required = false) Integer num1,@RequestParam (required = false) Integer num2) {
+        if (num1 != null && num2 != null) {
+            return calculatorService.multiply(num1, num2);
+        } else {
+            return "Не хватает числа(-ел) для выполнения операции";
+        }
     }
 
     @GetMapping("/divide")
